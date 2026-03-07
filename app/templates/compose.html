@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card">
+    <h2>Compose AI Reply</h2>
+    <form method="post">
+      <label for="tone">Choose a tone</label>
+      <select id="tone" name="tone">
+        {% for tone in tones %}
+          <option value="{{ tone }}">{{ tone }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="original_email">Paste the incoming email</label>
+      <textarea id="original_email" name="original_email" rows="10" placeholder="Paste the email here..."></textarea>
+
+      <button type="submit">Generate Reply</button>
+    </form>
+  </div>
+{% endblock %}

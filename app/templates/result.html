@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card">
+    <h2>Generated Reply</h2>
+    <p><strong>Tone:</strong> {{ entry.tone }}</p>
+
+    <h3>Original Email</h3>
+    <pre class="pre">{{ entry.original_email }}</pre>
+
+    <h3>AI Draft</h3>
+    <pre class="pre">{{ entry.generated_reply or "No draft available." }}</pre>
+
+    <h3>Edit and Save Final Reply</h3>
+    <form method="post" action="{{ url_for('main.save', entry_id=entry.id) }}">
+      <textarea name="final_reply" rows="10">{{ entry.final_reply or entry.generated_reply or "" }}</textarea>
+      <button type="submit">Save Final Reply</button>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card">
+    <h2>What this app does</h2>
+    <p>Paste an incoming email and let AI draft a professional response. You can review, edit, and save the final reply.</p>
+    <p><a class="btn" href="{{ url_for('main.compose') }}">Start Drafting</a></p>
+  </div>
+{% endblock %}
